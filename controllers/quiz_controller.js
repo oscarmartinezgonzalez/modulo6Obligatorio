@@ -29,7 +29,7 @@ exports.index = function(req, res) {
     models.Quiz.findAll().then(function(quizes) {
       res.render('quizes/index.ejs', { quizes: quizes, errors: []});
     }
-  ).catch(function(error) { next(error);})
+  ).catch(function(error) { next(error);});
   }
     
 };
