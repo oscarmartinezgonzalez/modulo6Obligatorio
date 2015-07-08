@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/author', function(req, res) {
-  res.render('author', { title: 'Creditos' });
+  res.render('author', { title: 'Creditos', errors: [] });
 });
 
 //router.get('/quizes/question', quizController.question);
