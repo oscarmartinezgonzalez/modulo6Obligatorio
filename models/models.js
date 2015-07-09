@@ -37,6 +37,7 @@ sequelize.sync().then(function() {
   // then(..) ejecuta el manejador una vez creada la tabla
   Quiz.count().then(function (count){
     if(count === 0) {   // la tabla se inicializa solo si está vacía
+          console.log('quiz:Entro en models a inicializar la tabla de quiz');
            Quiz.bulkCreate( 
         [ {pregunta: 'Capital de Italia',   respuesta: 'Roma', tema: 'Ocio'},
           {pregunta: 'Capital de Portugal', respuesta: 'Lisboa', tema: 'Humanidades'}
