@@ -21,15 +21,16 @@ exports.index = function(req, res) {
     var search = (req.query.search).replace(" ","%");
     models.Quiz.findAll({where:["pregunta like ?", '%'+search+'%'],order:'pregunta ASC'}).then(function(quizes){
        res.render('quizes/index.ejs', {quizes: quizes, errors: []});
-     }).catch(function(error) { next(error);});
+     }).catch(function(error) { next(error)});
 
   }
   else{
-
+    console.log('quiz: Justo antes de buscar preguntas....');
     models.Quiz.findAll().then(function(quizes) {
+      console.log('quiz: Recupero quizes....'+ quizes);
       res.render('quizes/index.ejs', { quizes: quizes, errors: []});
     }
-  ).catch(function(error) { next(error);});
+  ).catch(function(error) { console.log('quiz: Entro catch por un error: '+ error); next(error)});
   }
     
 };
